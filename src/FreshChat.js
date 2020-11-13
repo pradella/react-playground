@@ -5,11 +5,13 @@ function FreshChatComponent({ token }) {
     const [canMount, setCanMount] = useState(false);
 
     useEffect(() => {
+        // didMount
         setTimeout(() => {
             // tem que ter um delay para permitir o tempo de desmontar e uma próxima renderização inicializar corretamente
             setCanMount(true);
         }, 2000);
 
+        // willUnmount
         return () => {
             window.fcWidget.destroy();
         }
